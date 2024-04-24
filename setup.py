@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="facehuggershield",
-    version="0.1.4",
+    version="0.1.5",
     author="Capsize LLC",
     description="",
     long_description=open("README.md", "r", encoding="utf-8").read(),
