@@ -1,14 +1,14 @@
 from setuptools import setup, find_packages
 
 setup(
-    name='facehuggershield',
+    name="facehuggershield",
     version="0.1.0",
     author="Capsize LLC",
     description="",
     long_description=open("README.md", "r", encoding="utf-8").read(),
     long_description_content_type="text/markdown",
     keywords="",
-    license="AGPL-3.0",
+    license="GPL-3.0",
     author_email="contact@capsizegames.com",
     url="https://github.com/Capsize-Games/facehuggershield",
     package_dir={"": "src"},
