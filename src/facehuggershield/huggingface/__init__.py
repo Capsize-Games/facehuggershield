@@ -1,7 +1,7 @@
-import defendron
+import defendatron
 
 print("Activating facehugger shield...")
-defendron.activate(
+defendatron.activate(
     nullscream_blacklist=[
         "huggingface_hub.commands",
         "huggingface_hub.templates",

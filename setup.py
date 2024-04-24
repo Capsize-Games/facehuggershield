@@ -17,6 +17,6 @@ setup(
     install_requires=[
     ],
     dependency_links=[
-        "defendron==0.1.0",
+        "defendatron==0.1.0",
     ],
 )
