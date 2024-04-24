@@ -31,6 +31,6 @@ defendatron.activate(
         "huggingface_hub.utils",
     ],
     activate_shadowlogger=True,
-    activate_lockdown=True,
+    activate_darklock=True,
     activate_nullscream=True,
 )

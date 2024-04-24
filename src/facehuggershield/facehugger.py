@@ -1,5 +1,5 @@
 from nullscream import install_nullscream, uninstall_nullscream
-import lockdown
+import darklock
 
 
 class Facehugger:
@@ -31,7 +31,7 @@ class Facehugger:
         )
 
     def lock_network(self):
-        lockdown.network.activate()
+        darklock.network.activate()
 
     def unlock_network(self):
-        lockdown.network.deactivate()
+        darklock.network.deactivate()
