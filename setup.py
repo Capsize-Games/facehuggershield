@@ -17,8 +17,6 @@ setup(
     install_requires=[
     ],
     dependency_links=[
-        "shadowlogger==0.1.0",
-        "nullscream==0.1.0",
-        "lockdown==0.1.0",
+        "defendron==0.1.0",
     ],
 )

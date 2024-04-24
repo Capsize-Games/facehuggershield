@@ -1,9 +1,8 @@
-########################################################################
-# Importing an installing this module disables certain modules.
-########################################################################
-from nullscream import install_nullscream
-install_nullscream(
-    blacklist=[
+import defendron
+
+print("Activating facehugger shield...")
+defendron.activate(
+    nullscream_blacklist=[
         "huggingface_hub.commands",
         "huggingface_hub.templates",
         "huggingface_hub._commit_api",
@@ -28,22 +27,10 @@ install_nullscream(
         "huggingface_hub.utils._telemetry",
         "transformers.utils.hub.PushToHubMixin",
     ],
-    whitelist=[
+    nullscream_whitelist=[
         "huggingface_hub.utils",
-    ]
+    ],
+    activate_shadowlogger=True,
+    activate_lockdown=True,
+    activate_nullscream=True,
 )
-
-########################################################################
-# Importing this module ensures that the internet is completely disabled
-########################################################################
-
-from lockdown.network import no_internet_socket
-
-
-########################################################################
-# Importing this module ensures that disk access is restricted
-########################################################################
-
-from lockdown.os.restrict_os_access import RestrictOSAccess
-restrict_os_access = RestrictOSAccess()
-restrict_os_access.install()
