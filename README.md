@@ -1,12 +1,14 @@
 # Facehugger Shield
 
-
-![img.png](img.png)
-
-
 Facehugger Shield automatically locks down operations
 for specific modules. It was designed to non-destructively restrict access
 to the Huggingface library, but can be used with any library.
+
+---
+
+![img.png](img.png)
+
+[![Upload Python Package](https://github.com/Capsize-Games/facehuggershield/actions/workflows/python-publish.yml/badge.svg)](https://github.com/Capsize-Games/facehuggershield/actions/workflows/python-publish.yml)
 
 ---
 
