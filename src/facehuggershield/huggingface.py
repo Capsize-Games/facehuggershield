@@ -26,11 +26,12 @@ defendatron.activate(
         "huggingface_hub.utils._headers",
         "huggingface_hub.utils._telemetry",
         "transformers.utils.hub.PushToHubMixin",
+        "transformers.tools.agents",
     ],
     nullscream_whitelist=[
         "huggingface_hub.utils",
     ],
-    activate_shadowlogger=True,
+    activate_shadowlogger=False,
     activate_darklock=True,
     activate_nullscream=True,
 )
