@@ -1,7 +1,8 @@
 import defendatron
+from facehuggershield.huggingface.set_environment_variables import set_huggingface_environment_variables
 
 print("Activating facehugger shield...")
-defendatron.activate(
+def activate(
     nullscream_blacklist=[
         "huggingface_hub.commands",
         "huggingface_hub.templates",
@@ -29,9 +30,25 @@ defendatron.activate(
         "transformers.tools.agents",
     ],
     nullscream_whitelist=[
-        "huggingface_hub.utils",
+        # "huggingface_hub.utils",
+        "transformers.models.whisper",
+        "transformers.models.whisper.modeling_whisper",
+        "transformers.models.whisper",
     ],
-    activate_shadowlogger=False,
+    activate_shadowlogger=True,
     activate_darklock=True,
     activate_nullscream=True,
-)
+    show_stdout=True
+):
+    set_huggingface_environment_variables(
+        allow_downloads=False,
+
+    )
+    defendatron.activate(
+        nullscream_blacklist=nullscream_blacklist,
+        nullscream_whitelist=nullscream_whitelist,
+        activate_shadowlogger=activate_shadowlogger,
+        activate_darklock=activate_darklock,
+        activate_nullscream=activate_nullscream,
+        show_stdout=show_stdout
+    )
