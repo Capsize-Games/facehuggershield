@@ -35,6 +35,7 @@ def activate(
         "transformers.models.whisper.modeling_whisper",
         "transformers.models.whisper",
     ],
+    nullscream_function_blacklist=[],
     activate_shadowlogger=True,
     activate_darklock=True,
     activate_nullscream=True,
@@ -47,6 +48,7 @@ def activate(
     defendatron.activate(
         nullscream_blacklist=nullscream_blacklist,
         nullscream_whitelist=nullscream_whitelist,
+        nullscream_function_blacklist=nullscream_function_blacklist,
         activate_shadowlogger=activate_shadowlogger,
         activate_darklock=activate_darklock,
         activate_nullscream=activate_nullscream,
