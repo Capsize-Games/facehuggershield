@@ -30,10 +30,6 @@ def activate(
         "transformers.tools.agents",
     ],
     nullscream_whitelist=[
-        # "huggingface_hub.utils",
-        "transformers.models.whisper",
-        "transformers.models.whisper.modeling_whisper",
-        "transformers.models.whisper",
     ],
     nullscream_function_blacklist=[],
     activate_shadowlogger=True,
