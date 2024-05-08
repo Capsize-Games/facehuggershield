@@ -15,7 +15,7 @@ setup(
     packages=find_packages("src"),
     python_requires=">=3.10.0",
     install_requires=[
-        "defendatron==0.1.4",
+        "defendatron==0.1.5",
     ],
     dependency_links=[
     ],
