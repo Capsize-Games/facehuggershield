@@ -35,7 +35,14 @@ def activate(
     activate_shadowlogger=True,
     activate_darklock=True,
     activate_nullscream=True,
-    show_stdout=True
+    show_stdout=True,
+
+    # darklock properites
+    darklock_os_whitelisted_operations: list = None,
+    darklock_os_whitelisted_filenames: list = None,
+    darklock_os_whitelisted_imports: list = None,
+    darklock_os_blacklisted_filenames: list = None,
+    darklock_os_whitelisted_directories: list = None,
 ):
     set_huggingface_environment_variables(
         allow_downloads=False,
@@ -48,5 +55,10 @@ def activate(
         activate_shadowlogger=activate_shadowlogger,
         activate_darklock=activate_darklock,
         activate_nullscream=activate_nullscream,
-        show_stdout=show_stdout
+        show_stdout=show_stdout,
+        darklock_os_whitelisted_operations=darklock_os_whitelisted_operations,
+        darklock_os_whitelisted_filenames=darklock_os_whitelisted_filenames,
+        darklock_os_whitelisted_imports=darklock_os_whitelisted_imports,
+        darklock_os_blacklisted_filenames=darklock_os_blacklisted_filenames,
+        darklock_os_whitelisted_directories=darklock_os_whitelisted_directories,
     )
