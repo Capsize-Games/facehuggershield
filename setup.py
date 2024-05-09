@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="facehuggershield",
-    version="0.1.9",
+    version="0.1.10",
     author="Capsize LLC",
     description="",
     long_description=open("README.md", "r", encoding="utf-8").read(),
@@ -15,7 +15,7 @@ setup(
     packages=find_packages("src"),
     python_requires=">=3.10.0",
     install_requires=[
-        "defendatron==0.1.7",
+        "defendatron==0.1.8",
     ],
     dependency_links=[
     ],
