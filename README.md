@@ -36,7 +36,7 @@ Now you can use Huggingface libraries without worrying about telemetry, networki
 
 ## How it works
 
-Facehugger Shield uses `nullscream` to intercept blacklisted modules and return Noop modules in their place.
+Facehugger Shield uses [nullscream](https://github.com/Capsize-Games/nullscream) to intercept blacklisted modules and return Noop modules in their place.
 The noop modules are empty classes with functions that return Magic noop classes.
 The magic class functions in turn respond with Magic classes.
 
