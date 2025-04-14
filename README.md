@@ -67,4 +67,4 @@ Although FacehuggerShield was specifically created to contain or nuke certain po
 If you want to add support for other libraries
 
 1. Copy and paste the `huggingface` directory, name it after the library you're creating a configuration for
-2. Modify all of the files to fit your needs
+2. Modify all of the files in the new directory to fit your needs using the HuggingFace settings as your example
