@@ -50,12 +50,12 @@ The magic class functions in turn respond with Magic classes.
 
 This allows anything on the blacklist to be importable, but not executable.
 
-By overriding certain functions in HuggingFace libraries, Facehuggershield is able to prevent the use of Huggingface Hub.
+By overriding certain functions in HuggingFace libraries, Facehuggershield is able to prevent the use of HuggingFace Hub.
 
-Facehugger Shield also makes use of [darklock](https://github.com/Capsize-Games/darklock) to lock down network services, and [shadowlogger](https://github.com/Capsize-Games/shadowlogger) to intercept and reroute logs.
+Facehuggershield also makes use of [darklock](https://github.com/Capsize-Games/darklock) to lock down network services, and [shadowlogger](https://github.com/Capsize-Games/shadowlogger) to intercept and reroute logs.
 
 These libraries are combined under [defendatron](https://github.com/Capsize-Games/defendatron), a simple coordinator library.
 
-Facehugger Shield contains all of the required settings for defendatron, as well as the best Huggingface Library settings for privacy.
+Facehuggershield contains all of the required settings for defendatron, as well as the best Huggingface Library settings for privacy.
 
 Although Facehuggershield was specifically created to contain or nuke certain portions of the HuggingFace libraries, it can be configured to work with any library as it is simply a configuration wrapper around the previously mentioned modules which do the real work.
