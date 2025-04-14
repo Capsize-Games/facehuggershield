@@ -1,6 +1,6 @@
-# Facehugger Shield
+# FacehuggerShield
 
-Facehuggershield automatically locks down operations
+FacehuggerShield automatically locks down operations
 for specific modules. It was designed to non-destructively restrict access
 to the Huggingface library, but can be used with any library.
 
@@ -14,10 +14,10 @@ to the Huggingface library, but can be used with any library.
 
 ## Usage
 
-Facehuggershield was specifically designed to override Huggingface libraries, so the following examples show how to do that.
+FacehuggerShield was specifically designed to override HuggingFace libraries, so the following examples show how to do that.
 
 
-Install with Huggingface libraries (or any other library you want to restrict).
+Install with HuggingFace libraries (or any other library you want to restrict).
 
 ```bash
 pip install facehuggershield
@@ -32,7 +32,7 @@ from facehuggershield.huggingface import activate
 activate()
 ```
 
-Now you can use Huggingface libraries without worrying about telemetry, networking or file writes.
+Now you can use HuggingFace libraries without worrying about telemetry, networking or file writes.
 
 ---
 
@@ -44,18 +44,18 @@ See the `activate` function in the [huggingface/__init__.py](https://github.com/
 
 ## How it works
 
-Facehuggershield uses [nullscream](https://github.com/Capsize-Games/nullscream) to intercept blacklisted modules and return Noop modules in their place.
+FacehuggerShield uses [nullscream](https://github.com/Capsize-Games/nullscream) to intercept blacklisted modules and return Noop modules in their place.
 The noop modules are empty classes with functions that return Magic noop classes.
 The magic class functions in turn respond with Magic classes.
 
 This allows anything on the blacklist to be importable, but not executable.
 
-By overriding certain functions in HuggingFace libraries, Facehuggershield is able to prevent the use of HuggingFace Hub.
+By overriding certain functions in HuggingFace libraries, FacehuggerShield is able to prevent the use of HuggingFace Hub.
 
-Facehuggershield also makes use of [darklock](https://github.com/Capsize-Games/darklock) to lock down network services, and [shadowlogger](https://github.com/Capsize-Games/shadowlogger) to intercept and reroute logs.
+FacehuggerShield also makes use of [darklock](https://github.com/Capsize-Games/darklock) to lock down network services, and [shadowlogger](https://github.com/Capsize-Games/shadowlogger) to intercept and reroute logs.
 
 These libraries are combined under [defendatron](https://github.com/Capsize-Games/defendatron), a simple coordinator library.
 
-Facehuggershield contains all of the required settings for defendatron, as well as the best Huggingface Library settings for privacy.
+FacehuggerShield contains all of the required settings for defendatron, as well as the best HuggingFace Library settings for privacy.
 
-Although Facehuggershield was specifically created to contain or nuke certain portions of the HuggingFace libraries, it can be configured to work with any library as it is simply a configuration wrapper around the previously mentioned modules which do the real work.
+Although FacehuggerShield was specifically created to contain or nuke certain portions of the HuggingFace libraries, it can be configured to work with any library as it is simply a configuration wrapper around the previously mentioned modules which do the real work.
