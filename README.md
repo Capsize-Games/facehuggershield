@@ -2,7 +2,7 @@
 
 FacehuggerShield automatically locks down operations
 for specific modules. It was designed to non-destructively restrict access
-to the Huggingface library, but can be used with any library.
+to HuggingFace libraries, but can be used with any library.
 
 ---
 
