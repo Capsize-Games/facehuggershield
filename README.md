@@ -27,7 +27,7 @@ Import in your application's main entry file (e.g. `main.py`), import `facehugge
 any other libraries.
 
 ```python
-import facehuggershield.huggingface
+from facehuggershield.huggingface import activate
 
 activate()
 ```
