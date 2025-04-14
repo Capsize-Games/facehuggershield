@@ -1,10 +1,30 @@
+from typing import List, Optional
 import defendatron
-from facehuggershield.huggingface.set_environment_variables import set_huggingface_environment_variables
+from facehuggershield.huggingface.set_environment_variables import (
+    set_huggingface_environment_variables,
+)
 
 print("Activating facehugger shield...")
+
+
 def activate(
-    nullscream_blacklist=[
+    nullscream_blacklist: Optional[List[str]] = None,
+    nullscream_whitelist: Optional[List[str]] = None,
+    nullscream_function_blacklist: Optional[List[str]] = None,
+    activate_shadowlogger: bool = True,
+    activate_darklock: bool = True,
+    activate_nullscream: bool = True,
+    show_stdout: bool = True,
+    # darklock properites
+    darklock_os_whitelisted_operations: List = None,
+    darklock_os_whitelisted_filenames: List = None,
+    darklock_os_whitelisted_imports: List = None,
+    darklock_os_blacklisted_filenames: List = None,
+    darklock_os_whitelisted_directories: List = None,
+):
+    nullscream_blacklist = nullscream_blacklist or [
         "huggingface_hub.commands",
+        "huggingface_hub.commands._cli_utils",
         "huggingface_hub.templates",
         "huggingface_hub._commit_api",
         "huggingface_hub._commit_scheduler",
@@ -26,27 +46,15 @@ def activate(
         "huggingface_hub.utils._headers",
         "huggingface_hub.utils._headers",
         "huggingface_hub.utils._telemetry",
+        "huggingface_hub.utils._cache_manager",
         "transformers.utils.hub.PushToHubMixin",
         "transformers.tools.agents",
-    ],
-    nullscream_whitelist=[
-    ],
-    nullscream_function_blacklist=[],
-    activate_shadowlogger=True,
-    activate_darklock=True,
-    activate_nullscream=True,
-    show_stdout=True,
-
-    # darklock properites
-    darklock_os_whitelisted_operations: list = None,
-    darklock_os_whitelisted_filenames: list = None,
-    darklock_os_whitelisted_imports: list = None,
-    darklock_os_blacklisted_filenames: list = None,
-    darklock_os_whitelisted_directories: list = None,
-):
+        "transformers",
+    ]
+    nullscream_whitelist = nullscream_whitelist or []
+    nullscream_function_blacklist = nullscream_function_blacklist or []
     set_huggingface_environment_variables(
         allow_downloads=False,
-
     )
     defendatron.activate(
         nullscream_blacklist=nullscream_blacklist,
