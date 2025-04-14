@@ -47,3 +47,5 @@ By overriding certain functions in the [transformers](https://github.com/hugging
 Facehugger Shield also makes use of [darklock](https://github.com/Capsize-Games/darklock) to lock down network services, and [shadowlogger](https://github.com/Capsize-Games/shadowlogger) to intercept and reroute logs.
 
 These libraries are combined under [defendatron](https://github.com/Capsize-Games/defendatron), a simple coordinator library.
+
+Facehugger Shield contains all of the required settings for defendatron, as well as the best Huggingface Library settings for privacy.
