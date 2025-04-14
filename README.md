@@ -42,4 +42,8 @@ The magic class functions in turn respond with Magic classes.
 
 This allows anything on the blacklist to be importable, but not executable.
 
-By overriding certain functions in the `transformers` library, Facehugger is able to prevent
+By overriding certain functions in the `transformers` library, Facehugger is able to prevent the use of Huggingface Hub.
+
+Facehugger Shield also makes use of [darklock](https://github.com/Capsize-Games/darklock) to lock down network services, and [shadowlogger](https://github.com/Capsize-Games/shadowlogger) to intercept and reroute logs.
+
+These libraries are combined under [defendatron](https://github.com/Capsize-Games/defendatron), a simple coordinator library.
