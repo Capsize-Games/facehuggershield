@@ -28,9 +28,17 @@ any other libraries.
 
 ```python
 import facehuggershield.huggingface
+
+activate()
 ```
 
 Now you can use Huggingface libraries without worrying about telemetry, networking or file writes.
+
+---
+
+## Settings
+
+See the `activate` function in the [huggingface/__init__.py](https://github.com/Capsize-Games/facehuggershield/blob/master/src/facehuggershield/huggingface/__init__.py) file.
 
 ---
 
