@@ -59,3 +59,12 @@ These libraries are combined under [defendatron](https://github.com/Capsize-Game
 FacehuggerShield contains all of the required settings for defendatron, as well as the best HuggingFace Library settings for privacy.
 
 Although FacehuggerShield was specifically created to contain or nuke certain portions of the HuggingFace libraries, it can be configured to work with any library as it is simply a configuration wrapper around the previously mentioned modules which do the real work.
+
+---
+
+## How to add support for other libraries
+
+If you want to add support for other libraries
+
+1. Copy and paste the `huggingface` directory, name it after the library you're creating a configuration for
+2. Modify all of the files to fit your needs
