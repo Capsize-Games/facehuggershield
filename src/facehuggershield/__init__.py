@@ -1,1 +1,1 @@
-from . import huggingface
+"""FacehuggerShield package."""

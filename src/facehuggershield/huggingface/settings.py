@@ -18,38 +18,14 @@ WHAT YOU ARE DOING.
 ====================================================================
 """
 
-
-"""
-Environment variables for huggingface libraries
-The following environment variables control huggingface libraries.
-
-DO NOT CHANGE THESE VARIABLES UNLESS YOU KNOW WHAT YOU ARE DOING!
-
-For implementation, see the function
-airunner.src.utils.security.set_huggingface_environment_variables
-
---------------------------------------------------------------------
-
-We leave this implementation in the codebase however we have
-also taken steps to disable this functionality by preventing
-the application from accessing the internet as well as preventing
-huggingface libraries from performing write operations to the
-cache folder.
-
-See README.md for more information.
-
-"""
+"""Environment defaults for Hugging Face privacy and sandboxing."""
+import os
 
 ####################################################################
-# This is the default mode to prevent HF from accessing the internet
-# Only change this to False if you want to create an application
-# that is never allowed to access the internet.
-# In the core AI Runner application, this flag is referenced in ONE
-# file and is used to allow the model downloader
-# (in the setup wizard) as well as the model manager to download
-# models from huggingface and Civitai.
+# This flag controls whether the host application may temporarily
+# opt into downloads while using the policy pack.
 ####################################################################
-HF_ALLOW_DOWNLOADS = True  # This is an AI Runner specific variable
+HF_ALLOW_DOWNLOADS = True
 
 ####################################################################
 # HF_HUB_DISABLE_TELEMETRY is used to disable telemetry for
@@ -68,15 +44,13 @@ HF_HUB_DISABLE_TELEMETRY = "1"  # Never change this variable
 HF_HUB_OFFLINE = "1"
 
 ####################################################################
-# HF_CACHE_DIR is the directory where huggingface models are stored.
-# Default value is "~/.cache/huggingface" but we have changed it to
-# "~/.airunner/huggingface"
-# It is safe to change this to a different directory. It can also
-# be changed in the GUI.
-# If you would like to use the default directory (in order to use
-# your existing cache), set it to "~/.cache/huggingface"
+# HF_CACHE_DIR is the directory where Hugging Face models are stored.
+# By default FacehuggerShield keeps this under a package-scoped cache
+# root instead of using the shared Hugging Face default directory.
 ####################################################################
-HF_CACHE_DIR = "~/.airunner/huggingface"
+HF_CACHE_DIR = os.path.join(
+    os.path.expanduser("~"), ".cache", "facehuggershield", "huggingface"
+)
 
 ####################################################################
 # HF_HOME is the directory where huggingface models are stored.
@@ -93,9 +67,9 @@ HF_ASSETS_CACHE = HF_CACHE_DIR
 
 ####################################################################
 # HF_ENDPOINT is the huggingface endpoint.
-# Default value is "https://huggingface.co" but we have changed it
-# to "https://huggingface.co"
-# in order to force prevention of ineternet access.
+# Default value is "https://huggingface.co" but we blank it out to
+# force offline behavior unless the host application explicitly opts
+# into downloads.
 ####################################################################
 HF_ENDPOINT = ""
 
@@ -113,11 +87,8 @@ HF_INFERENCE_ENDPOINT = ""
 ####################################################################
 # HF_HUB_DISABLE_PROGRESS_BARS is used to disable progress bars for
 # huggingface models.
-# Default value is "0", we have kept this to show when models are
-# being downloaded
-# in the terminal. This transparency is useful for monitoring
-# download progress and debugging,
-# but can be disabled to reduce terminal clutter if preferred.
+# Default value is "0", which keeps download progress visible when a
+# host application explicitly enables network access.
 ####################################################################
 HF_HUB_DISABLE_PROGRESS_BARS = "0"
 
@@ -217,10 +188,8 @@ DIFFUSERS_VERBOSITY = "error"
 # For example, the stabilityai zeyphr library has a flag to
 # trust remote code.
 # Allegedly, this is safe, but I do not trust it.
-# This flag has been left in the code in case a developer
-# automatically sets it to true in one of the functions
-# and for research purposes. Never set this to True unless you are
-# researching.
+# Never set this to True unless you are explicitly researching or
+# auditing remote-code execution behavior.
 ####################################################################
 TRUST_REMOTE_CODE = "False"
 
@@ -261,8 +230,6 @@ DEFAULT_HF_ENDPOINT = "https://huggingface.co"
 # This is used when the HF_HUB_OFFLINE is set to "0"
 # and online access is allowed.
 # You may change this value if you want to use a different endpoint.
-# This variable is currently unused by AI Runner.
+# This value is reserved for hosts that opt into online inference.
 ####################################################################
-DEFAULT_HF_INFERENCE_ENDPOINT = (
-    "https://api-inference.huggingface.com"
-)
+DEFAULT_HF_INFERENCE_ENDPOINT = "https://api-inference.huggingface.com"

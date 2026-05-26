@@ -1,10 +1,11 @@
+"""Hugging Face policy pack for FacehuggerShield."""
+
 from typing import List, Optional
-import defendatron
+
+import facehuggershield.defendatron
 from facehuggershield.huggingface.set_environment_variables import (
     set_huggingface_environment_variables,
 )
-
-print("Activating facehugger shield...")
 
 
 def activate(
@@ -15,20 +16,21 @@ def activate(
     activate_darklock: bool = True,
     activate_nullscream: bool = True,
     show_stdout: bool = True,
-    # darklock properites
-    darklock_os_whitelisted_operations: List = None,
-    darklock_os_whitelisted_filenames: List = None,
-    darklock_os_whitelisted_imports: List = None,
-    darklock_os_blacklisted_filenames: List = None,
-    darklock_os_whitelisted_directories: List = None,
-):
+    darklock_os_whitelisted_operations: Optional[List[str]] = None,
+    darklock_os_whitelisted_filenames: Optional[List[str]] = None,
+    darklock_os_whitelisted_modules: Optional[List[str]] = None,
+    darklock_os_whitelisted_directories: Optional[List[str]] = None,
+    darklock_os_allow_network: bool = False,
+    darklock_allowed_network_port: Optional[int] = None,
+) -> None:
+    """Activate FacehuggerShield restrictions for Hugging Face runtimes."""
     nullscream_blacklist = nullscream_blacklist or [
         "huggingface_hub.commands",
         "huggingface_hub.commands._cli_utils",
         "huggingface_hub.templates",
         "huggingface_hub._commit_api",
         "huggingface_hub._commit_scheduler",
-        "huggingface_hub._infernece_endpoints",
+        "huggingface_hub._inference_endpoints",
         "huggingface_hub._login",
         "huggingface_hub._snapshot_download",
         "huggingface_hub._space_api",
@@ -44,7 +46,6 @@ def activate(
         "huggingface_hub.repocard_data",
         "huggingface_hub.utils._gitcredential",
         "huggingface_hub.utils._headers",
-        "huggingface_hub.utils._headers",
         "huggingface_hub.utils._telemetry",
         "huggingface_hub.utils._cache_manager",
         "transformers.utils.hub.PushToHubMixin",
@@ -53,10 +54,8 @@ def activate(
     ]
     nullscream_whitelist = nullscream_whitelist or []
     nullscream_function_blacklist = nullscream_function_blacklist or []
-    set_huggingface_environment_variables(
-        allow_downloads=False,
-    )
-    defendatron.activate(
+    set_huggingface_environment_variables(allow_downloads=False)
+    facehuggershield.defendatron.activate(
         nullscream_blacklist=nullscream_blacklist,
         nullscream_whitelist=nullscream_whitelist,
         nullscream_function_blacklist=nullscream_function_blacklist,
@@ -66,7 +65,8 @@ def activate(
         show_stdout=show_stdout,
         darklock_os_whitelisted_operations=darklock_os_whitelisted_operations,
         darklock_os_whitelisted_filenames=darklock_os_whitelisted_filenames,
-        darklock_os_whitelisted_imports=darklock_os_whitelisted_imports,
-        darklock_os_blacklisted_filenames=darklock_os_blacklisted_filenames,
+        darklock_os_whitelisted_modules=darklock_os_whitelisted_modules,
         darklock_os_whitelisted_directories=darklock_os_whitelisted_directories,
+        darklock_os_allow_network=darklock_os_allow_network,
+        darklock_allowed_network_port=darklock_allowed_network_port,
     )
